@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 class="mb-3">Sort by categories:</h1>
+<table class="table">
+    {% for category in output %}
+
+            <tr>
+                <th>
+                    <a href="{{url_for('posts.specific_category', tag=category)}}">{{ category }}</a>
+                </th>
+            </tr>
+
+    {% endfor %}
+</table>
+{% endblock content %}
