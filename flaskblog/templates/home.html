@@ -4,13 +4,15 @@
         <article class="media content-section">
           <img class="rounded-circle article-img" src="{{ url_for('static', filename='pics/' + post.author.image_file) }}">
           <div class="media-body">
-            <div class="article-metadata">
+            <div class="article-metadata" style="word-wrap: break-word">
               <a class="mr-2" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
               <small class="text-muted">Posted on {{ post.date_posted.strftime('%Y-%m-%d') }}</small>
             </div>
               <a style="color:#000000" class="stretched-link" href="{{ url_for('posts.post', post_id=post.id)}}">
             <h2 class="article-title"> {{ post.title }}</h2>
-            <p class="article-content">{{ post.content | markdown }}</p>
+            <p class="article-content">{{ post.content | markdown | truncate(400) }}</p>
+
+              <p class="text-center"><b>Click to read more...</b></p>
                   </a>
           </div>
         </article>
