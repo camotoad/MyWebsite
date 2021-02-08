@@ -35,8 +35,6 @@
                     <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}">Create a new post</a>
                     <a class="nav-item nav-link" href="{{ url_for('users.account') }}">{{current_user.username}}'s Account</a>
                     <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
-                {% else %}
-                    <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
                 {% endif %}
             </div>
           </div>
@@ -45,7 +43,7 @@
     </header>
     <main role="main" class="container">
       <div class="row" style="min-height: 850px">
-        <div class="col-md-10">
+        <div class="">
           {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
               {% for category, message in messages %}
